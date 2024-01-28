@@ -1,24 +1,19 @@
-package com.transferz.dao;
+package com.transferz.dto.response;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Airport {
+public class AirportResponse {
 
-    @Id
     private String code;
 
     private String name;
 
     private String countryCode;
-
 }
