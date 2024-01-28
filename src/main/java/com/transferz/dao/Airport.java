@@ -1,11 +1,24 @@
 package com.transferz.dao;
 
-public class Airport
-{
-	private String name;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-	private String code;
+@Data
+@Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class Airport {
 
-	private String country;
-	
+    @Id
+    private String code;
+
+    private String name;
+
+    private String country_code;
+
 }

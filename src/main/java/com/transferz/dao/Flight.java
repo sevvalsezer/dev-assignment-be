@@ -1,17 +1,30 @@
 package com.transferz.dao;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
-public class Flight
-{
-	private String code;
+@Data
+@Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class Flight {
 
-	private String originAirportId;
+    @Id
+    private String code;
 
-	private String destinationAirportId;
+    private String originAirportCode;
 
-	private LocalDateTime departureTime;
+    private String destinationAirportCode;
 
-	private LocalDateTime arrivalTime;
-	
+    private LocalDateTime departureDateTime;
+
+    private LocalDateTime arrivalDateTime;
+
 }

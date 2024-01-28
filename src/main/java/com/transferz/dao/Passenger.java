@@ -1,10 +1,26 @@
 package com.transferz.dao;
 
-public class Passenger
-{
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-	private String name;
+import java.util.UUID;
 
-	private String flightCode;
+@Data
+@Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class Passenger {
+
+    @Id
+    private UUID id;
+
+    private String name;
+
+    private String flightCode;
 
 }
