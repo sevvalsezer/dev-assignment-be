@@ -2,6 +2,7 @@ package com.transferz.service;
 
 import com.transferz.dao.Airport;
 import com.transferz.dto.request.CreateAirportRequest;
+import com.transferz.dto.request.FindAirportRequest;
 import com.transferz.repository.AirportRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -61,6 +62,7 @@ public class AirportServiceTest {
     @Test
     public void should_get_all_airports() {
         // Given
+        FindAirportRequest request = FindAirportRequest.builder().build();
         Pageable pageable = PageRequest.of(0, 50);
 
         Airport airport1 = Airport.builder()
@@ -81,13 +83,13 @@ public class AirportServiceTest {
 
         Page<Airport> expected = new PageImpl<>(airportList, pageable, 2);
 
-        Mockito.when(airportRepository.findAll(pageable)).thenReturn(expected);
+        Mockito.when(airportRepository.findAll(request, pageable)).thenReturn(expected);
 
         // When
-        Page<Airport> actual = airportService.getAll(pageable);
+        Page<Airport> actual = airportService.findAll(request, pageable);
 
         // Then
-        Mockito.verify(airportRepository).findAll(pageable);
+        Mockito.verify(airportRepository).findAll(request, pageable);
         Assertions.assertEquals(expected, actual);
     }
 }

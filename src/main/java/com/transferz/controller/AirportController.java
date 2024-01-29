@@ -2,6 +2,7 @@ package com.transferz.controller;
 
 import com.transferz.dao.Airport;
 import com.transferz.dto.request.CreateAirportRequest;
+import com.transferz.dto.request.FindAirportRequest;
 import com.transferz.dto.response.AirportResponse;
 import com.transferz.dto.response.PagedResponse;
 import com.transferz.mapper.AirportMapper;
@@ -31,11 +32,21 @@ public class AirportController {
     }
 
     @GetMapping
-    private PagedResponse<AirportResponse> getAll(
+    private PagedResponse<AirportResponse> findAll(
             @RequestParam(defaultValue = "0") Integer page,
-            @RequestParam(defaultValue = "10") Integer size
+            @RequestParam(defaultValue = "10") Integer size,
+            @RequestParam(required = false) String code,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String countryCode
     ) {
-        Page<Airport> airportPage = airportService.getAll(PageRequest.of(page, size));
+        FindAirportRequest findAirportRequest = FindAirportRequest.builder()
+                .code(code)
+                .name(name)
+                .countryCode(countryCode)
+                .build();
+        PageRequest pageRequest = PageRequest.of(page, size);
+
+        Page<Airport> airportPage = airportService.findAll(findAirportRequest, pageRequest);
 
         Page<AirportResponse> airportResponsePage = airportPage.map(airportMapper::toAirportResponse);
         return pageMapper.toPagedResponse(airportResponsePage);

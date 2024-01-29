@@ -2,6 +2,7 @@ package com.transferz.service;
 
 import com.transferz.dao.Airport;
 import com.transferz.dto.request.CreateAirportRequest;
+import com.transferz.dto.request.FindAirportRequest;
 import com.transferz.repository.AirportRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -24,7 +25,7 @@ public class AirportService {
         return airportRepository.save(airport);
     }
 
-    public Page<Airport> getAll(Pageable pageable) {
-        return airportRepository.findAll(pageable);
+    public Page<Airport> findAll(FindAirportRequest request, Pageable pageable) {
+        return airportRepository.findAll(request, pageable);
     }
 }
