@@ -1,0 +1,357 @@
+{
+	"info": {
+		"_postman_id": "a169752f-ec7d-46c7-8c27-7701512527b9",
+		"name": "dev-assignment-be",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25822329",
+		"_collection_link": "https://winter-meadow-364803.postman.co/workspace/New-Team-Workspace~01f54e10-2b8d-407e-ad74-ced84408632d/collection/25822329-a169752f-ec7d-46c7-8c27-7701512527b9?action=share&source=collection_link&creator=25822329"
+	},
+	"item": [
+		{
+			"name": "Create Airport",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Amsterdam Airport Schiphol\",\n    \"code\": \"AMS\",\n    \"countryCode\": \"NL\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/airports",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"airports"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CREATE AIRPORT RESPONSE",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Amsterdam Airport Schiphol\",\n    \"code\": \"AMS\",\n    \"countryCode\": \"NL\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/airports",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"airports"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 29 Jan 2024 04:44:37 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"AMS\",\n    \"name\": \"Amsterdam Airport Schiphol\",\n    \"countryCode\": \"NL\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Airports",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/airports?countryCode=NL",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"airports"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "AMS",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "Amsterdam Airport Schiphol",
+							"disabled": true
+						},
+						{
+							"key": "countryCode",
+							"value": "NL"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET AIRPORTS RESPONSE",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/airports?countryCode=NL",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"airports"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "AMS",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Amsterdam Airport Schiphol",
+									"disabled": true
+								},
+								{
+									"key": "countryCode",
+									"value": "NL"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 29 Jan 2024 04:47:47 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pageNumber\": 0,\n    \"pageSize\": 10,\n    \"totalPages\": 1,\n    \"totalElements\": 1,\n    \"content\": [\n        {\n            \"code\": \"AMS\",\n            \"name\": \"Amsterdam Airport Schiphol\",\n            \"countryCode\": \"NL\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Flight",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\": \"SB-9051\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/flights",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"flights"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CREATE FLIGHT RESPONSE",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"SB-9051\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/flights",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"flights"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 29 Jan 2024 04:45:12 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"SB-9051\",\n    \"originAirportCode\": \"AMS\",\n    \"destinationAirportCode\": null,\n    \"departureDateTime\": null,\n    \"arrivalDateTime\": null,\n    \"passengerCount\": 0,\n    \"version\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Passenger To Flight",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Sevval Beyza Sezer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/flights/SB-9051/add-passenger",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"flights",
+						"SB-9051",
+						"add-passenger"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ADD PASSENGER TO FLIGHT RESPONSE",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Sevval Beyza Sezer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/flights/SB-9051/add-passenger",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"flights",
+								"SB-9051",
+								"add-passenger"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 29 Jan 2024 04:46:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
