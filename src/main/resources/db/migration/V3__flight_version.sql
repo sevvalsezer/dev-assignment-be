@@ -1,0 +1,2 @@
+ALTER TABLE flight
+    ADD COLUMN version INTEGER NOT NULL DEFAULT '0';

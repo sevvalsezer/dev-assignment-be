@@ -2,6 +2,8 @@ package com.transferz.dao;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Version;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,4 +29,8 @@ public class Flight {
 
     private LocalDateTime arrivalDateTime;
 
+    private Integer passengerCount;
+
+    @Version
+    private Integer version;
 }

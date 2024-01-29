@@ -3,8 +3,10 @@
     <option name="ALTERNATIVE_JRE_PATH" value="17" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <envs>
-      <env name="DATABASE_USERNAME" value="user" />
       <env name="DATABASE_PASSWORD" value="password" />
+      <env name="DATABASE_USERNAME" value="user" />
+      <env name="PASSENGER_LIMIT_PER_FLIGHT" value="150" />
+      <env name="ORIGIN_AIRPORT_CODE" value="AMS" />
     </envs>
     <module name="dev-assignment-be" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="com.transferz.Application" />

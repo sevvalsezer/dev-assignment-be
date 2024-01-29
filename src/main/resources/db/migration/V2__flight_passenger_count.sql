@@ -1,0 +1,2 @@
+ALTER TABLE flight
+    ADD COLUMN passenger_count SMALLINT NOT NULL DEFAULT '0';

@@ -20,4 +20,15 @@ public interface AirportRepository extends JpaRepository<Airport, String> {
         """
     )
     Page<Airport> findAll(FindAirportRequest request, Pageable pageable);
+
+    // Get a random airport code excluding the one with given code
+    @Query(
+        value = """
+            SELECT a.code
+            FROM airport as a
+            WHERE a.code != :code ORDER BY random() LIMIT 1
+        """,
+        nativeQuery = true
+    )
+    String getRandomAirportCodeExceptByCode(String code);
 }

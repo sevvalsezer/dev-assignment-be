@@ -1,6 +1,9 @@
 package com.transferz.configuration;
 
 import com.transferz.dto.response.ApiErrorResponse;
+import com.transferz.exception.BadRequestException;
+import com.transferz.exception.ConflictException;
+import com.transferz.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.context.MessageSource;
@@ -35,6 +38,33 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ConstraintViolationException.class)
     public ApiErrorResponse handleDataIntegrityViolationException(ConstraintViolationException ex) {
         String messageCode = "error.".concat(ex.getConstraintName()).concat(".Constraint");
+        String errorMessage = getErrorMessage(messageCode);
+
+        return buildApiError(errorMessage);
+    }
+
+    @ResponseBody
+    @ExceptionHandler(NotFoundException.class)
+    public ApiErrorResponse handleNotFoundException(NotFoundException ex) {
+        String messageCode = "error.".concat(ex.resource).concat(".NotFound");
+        String errorMessage = getErrorMessage(messageCode);
+
+        return buildApiError(errorMessage);
+    }
+
+    @ResponseBody
+    @ExceptionHandler(BadRequestException.class)
+    public ApiErrorResponse handleBadRequestException(BadRequestException ex) {
+        String messageCode = "error.".concat(ex.reason);
+        String errorMessage = getErrorMessage(messageCode);
+
+        return buildApiError(errorMessage);
+    }
+
+    @ResponseBody
+    @ExceptionHandler(ConflictException.class)
+    public ApiErrorResponse handleConflictException(ConflictException ex) {
+        String messageCode = "error.".concat(ex.reason);
         String errorMessage = getErrorMessage(messageCode);
 
         return buildApiError(errorMessage);
