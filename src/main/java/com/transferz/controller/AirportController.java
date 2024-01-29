@@ -12,6 +12,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/airports")
@@ -22,7 +24,7 @@ public class AirportController {
     private final PageMapper pageMapper;
 
     @PostMapping
-    public AirportResponse create(@RequestBody CreateAirportRequest request) {
+    public AirportResponse create(@RequestBody @Valid CreateAirportRequest request) {
         Airport airport = airportService.create(request);
 
         return airportMapper.toAirportResponse(airport);

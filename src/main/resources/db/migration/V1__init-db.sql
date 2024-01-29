@@ -3,7 +3,8 @@ CREATE TABLE airport
     code         VARCHAR(4)   NOT NULL,
     name         VARCHAR(255) NOT NULL,
     country_code CHAR(2)      NOT NULL,
-    CONSTRAINT airport_pk PRIMARY KEY (code)
+    CONSTRAINT airport_pk PRIMARY KEY (code),
+    UNIQUE (name)
 );
 
 CREATE TABLE flight
